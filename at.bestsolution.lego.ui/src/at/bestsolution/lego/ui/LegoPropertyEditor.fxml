@@ -7,8 +7,9 @@
 <?import org.eclipse.fx.ui.panes.GridData?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.layout.GridPane?>
+<?scenebuilder-stylesheet default.css?>
 
-<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.bestsolution.lego.ui.LegoPropertyEditorController">
+<GridPane styleClass="brick-properties-form" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.bestsolution.lego.ui.LegoPropertyEditorController">
 	<children>
 		<Label text="Name" minWidth="-Infinity" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
 		<TextField fx:id="name"  GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="3" />

@@ -1,0 +1,54 @@
+GridPane.brick-properties-form {
+	-fx-hgap: 10;
+	-fx-vgap: 5;
+	-fx-padding: 10;
+}
+
+HBox.new-assembly-form {
+	-fx-spacing: 10;
+}
+
+.model-viewer .button, .model-viewer .toggle-button {
+	-fx-content-display: graphic-only ;
+	-fx-background-color: transparent;
+}
+
+.assembly-list-form .list-view {
+	-fx-background-color: transparent;
+}
+
+.assembly-list-form .list-cell {
+	-fx-background-color: transparent;
+}
+
+.assembly-list-form .list-cell:selected {
+	-fx-background-color: #8da5b5;
+}
+
+.button.zoom-in > .fonticonview {
+	-fx-icon: fa-expand;
+	-fx-icon-font-size: 25;
+	-fx-icon-fill: white;
+}
+
+.button.zoom-out > .fonticonview {
+	-fx-icon: fa-compress;
+	-fx-icon-font-size: 25;
+	-fx-icon-fill: white;
+}
+
+.button.zoom-reset {
+
+}
+
+.toggle-button.rotate > .fonticonview {
+	-fx-icon: fa-play-circle-o;
+	-fx-icon-font-size: 25;
+	-fx-icon-fill: white;
+}
+
+.toggle-button.rotate:selected > .fonticonview {
+	-fx-icon: fa-close;
+	-fx-icon-font-size: 25;
+	-fx-icon-fill: white;
+}

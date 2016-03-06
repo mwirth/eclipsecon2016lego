@@ -15,6 +15,7 @@ import org.eclipse.fx.core.di.ContextValue;
 import org.eclipse.fx.ui.databinding.JFXUIProperties;
 
 import at.bestsolution.lego.ui.components.LegoRasterElement;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ColorPicker;
@@ -45,6 +46,7 @@ public class LegoPropertyEditorController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		DataBindingContext dbc = new DataBindingContext();
 
+		rotation.setItems(FXCollections.observableArrayList(LegoRasterElement.Rotation.values()));
 		{
 			IObservableValue mObs = JFXBeanProperties.value("name").observeDetail(legoBrick);
 			IObservableValue uiObs = JFXUIProperties.text().observe(name);

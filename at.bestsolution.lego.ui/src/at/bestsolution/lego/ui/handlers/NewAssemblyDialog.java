@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 
 @SuppressWarnings({ "restriction" })
 public class NewAssemblyDialog extends TitleAreaDialog {
@@ -30,9 +31,11 @@ public class NewAssemblyDialog extends TitleAreaDialog {
 
 	private Node createClientArea() {
 		HBox box = new HBox();
+		box.getStyleClass().add("new-assembly-form");
 		box.setAlignment(Pos.CENTER_LEFT);
 		Label l = new Label("Name");
 		field = new TextField();
+		HBox.setHgrow(field, Priority.ALWAYS);
 		box.getChildren().addAll(l,field);
 
 		return box;

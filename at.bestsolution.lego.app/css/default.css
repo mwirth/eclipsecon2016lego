@@ -1,1 +1,17 @@
 /* JavaFX CSS - Main CSS-File */
+.root {
+	-fx-base: #b4bcc1;
+}
+
+#main-header {
+        -fx-background-color: #8da5b5;
+        -fx-padding: 20;
+}
+
+#main-header > .label {
+        -fx-text-fill: white;
+        -fx-font-size: 30pt;
+        -fx-graphic: url("icons/BestSolution_logoBall_100.png");
+        -fx-graphic-text-gap: 15px;
+}
+

@@ -5,13 +5,18 @@ import javax.inject.Named;
 
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.fx.core.di.ContextValue;
+import org.eclipse.fx.ui.controls.image.FontIconView;
 import org.eclipse.fx.ui.controls.sceneviewer.Viewer3d;
 
 import at.bestsolution.lego.ui.components.LegoAssembly;
 import at.bestsolution.lego.ui.components.LegoElement;
 import javafx.beans.property.Property;
 import javafx.collections.ListChangeListener.Change;
+import javafx.geometry.Orientation;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
 
 public class ModelViewer  {
@@ -21,6 +26,7 @@ public class ModelViewer  {
 	@Inject
 	public ModelViewer(BorderPane parent,
 			@ContextValue(Constants.CURRENT_LEGO_BRICK) Property<LegoElement> element) {
+		parent.getStyleClass().add("model-viewer");
 		viewer = new Viewer3d();
 		viewer.setOnOpenItem( e -> {
 			element.setValue((LegoElement)e.getItemNode());
@@ -28,6 +34,34 @@ public class ModelViewer  {
 		viewer.setMinWidth(400);
 		viewer.setMinHeight(400);
 
+		ToolBar tb = new ToolBar();
+		tb.setOrientation(Orientation.VERTICAL);
+
+		{
+			Button b = new Button();
+			b.setGraphic(new FontIconView());
+			b.getStyleClass().add("zoom-in");
+			b.setOnAction( e -> viewer.zoomIn(0.1));
+			tb.getItems().add(b);
+		}
+
+		{
+			Button b = new Button();
+			b.setGraphic(new FontIconView());
+			b.getStyleClass().add("zoom-out");
+			b.setOnAction( e -> viewer.zoomOut(0.1));
+			tb.getItems().add(b);
+		}
+
+		{
+			ToggleButton b = new ToggleButton();
+			b.setGraphic(new FontIconView());
+			b.getStyleClass().add("rotate");
+			viewer.contentRotateProperty().bindBidirectional(b.selectedProperty());
+			tb.getItems().add(b);
+		}
+
+		parent.setLeft(tb);
 		parent.setCenter(viewer);
 	}
 

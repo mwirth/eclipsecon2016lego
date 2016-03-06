@@ -41,6 +41,7 @@ public class AssemeblyListView {
 
 	@PostConstruct
 	void init(BorderPane parent, @ContextValue(Constants.CURRENT_LEGO_ASSEMBLY) Property<LegoAssembly> assembly) {
+		parent.getStyleClass().add("assembly-list-form");
 		ListView<LegoAssembly> view = new ListView<>();
 		view.setCellFactory( v -> new AssemblyCell());
 		assembly.bind(view.getSelectionModel().selectedItemProperty());
