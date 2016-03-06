@@ -11,7 +11,7 @@ import javafx.scene.layout.BorderPane;
 
 public class LegoElementPropertyEditor {
 	@PostConstruct
-	void init(BorderPane parent, @LocalInstance FXMLLoader loader) {
+	public void init(BorderPane parent, @LocalInstance FXMLLoader loader) {
 		loader.setLocation(getClass().getResource("LegoPropertyEditor.fxml"));
 		try {
 			parent.setCenter(loader.load());

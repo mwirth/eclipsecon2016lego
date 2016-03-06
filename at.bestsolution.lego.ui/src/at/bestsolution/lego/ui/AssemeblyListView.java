@@ -1,9 +1,10 @@
 package at.bestsolution.lego.ui;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Named;
+import javax.inject.Inject;
 
 import org.eclipse.fx.core.di.ContextValue;
+import org.eclipse.fx.core.event.EventBus;
 
 import at.bestsolution.lego.ui.components.LegoAssembly;
 import at.bestsolution.lego.ui.components.LegoBrick;
@@ -31,14 +32,22 @@ public class AssemeblyListView {
 		}
 	}
 
+	private final EventBus eventBus;
+
+	@Inject
+	public AssemeblyListView(EventBus eventBus) {
+		this.eventBus = eventBus;
+	}
+
 	@PostConstruct
-	void init(BorderPane parent, @ContextValue("legoAssembly") Property<LegoAssembly> assembly) {
+	void init(BorderPane parent, @ContextValue(Constants.CURRENT_LEGO_ASSEMBLY) Property<LegoAssembly> assembly) {
 		ListView<LegoAssembly> view = new ListView<>();
 		view.setCellFactory( v -> new AssemblyCell());
 		assembly.bind(view.getSelectionModel().selectedItemProperty());
 
 		ObservableList<LegoAssembly> list = FXCollections.observableArrayList(createSampleAssembly());
 		view.setItems(list);
+		eventBus.subscribe(Constants.TOPIC_NEW_ASSEMBLY, EventBus.data( list::add ));
 
 		parent.setCenter(view);
 	}

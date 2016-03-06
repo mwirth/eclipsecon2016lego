@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmi:id="_USBGQeFJEeWE6sjYlonxkA" elementId="org.eclipse.e4.application" bindingContexts="_USBGQOFJEeWE6sjYlonxkA">
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_USBGQeFJEeWE6sjYlonxkA" elementId="org.eclipse.e4.application" bindingContexts="_USBGQOFJEeWE6sjYlonxkA">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_dHtHwOH9EeWpcZzo955fwA" elementId="at.bestsolution.lego.app.trimmedwindow.lego3dmodel" label="Lego 3d Model" x="30" y="30" width="800" height="600">
     <children xsi:type="basic:PartSashContainer" xmi:id="_g6grAOH9EeWpcZzo955fwA" elementId="at.bestsolution.lego.app.partsashcontainer.0" horizontal="true">
       <children xsi:type="basic:Part" xmi:id="_iDd3IOH9EeWpcZzo955fwA" elementId="at.bestsolution.lego.app.part.0" containerData="15" contributionURI="bundleclass://at.bestsolution.lego.ui/at.bestsolution.lego.ui.AssemeblyListView"/>
       <children xsi:type="basic:Part" xmi:id="_ibtYAOH9EeWpcZzo955fwA" elementId="at.bestsolution.lego.app.part.1" containerData="70" contributionURI="bundleclass://at.bestsolution.lego.ui/at.bestsolution.lego.ui.ModelViewer"/>
       <children xsi:type="basic:Part" xmi:id="_jGDVgOH9EeWpcZzo955fwA" elementId="at.bestsolution.lego.app.part.2" containerData="15" contributionURI="bundleclass://at.bestsolution.lego.ui/at.bestsolution.lego.ui.LegoElementPropertyEditor"/>
     </children>
+    <mainMenu xmi:id="_xKzToOOzEeWv-rDn3LmQxA" elementId="at.bestsolution.lego.app.menu.0">
+      <children xsi:type="menu:Menu" xmi:id="_xxdD8OOzEeWv-rDn3LmQxA" elementId="at.bestsolution.lego.app.menu.app" label="App">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_zcQ_8OOzEeWv-rDn3LmQxA" elementId="at.bestsolution.lego.app.handledmenuitem.addbrick" label="Add Brick ..." command="_qZIykOOzEeWv-rDn3LmQxA"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_IGIiwOO7EeWv-rDn3LmQxA" elementId="at.bestsolution.lego.app.handledmenuitem.newassembly" label="New Assembly ..." command="_Do0p8OO7EeWv-rDn3LmQxA"/>
+      </children>
+    </mainMenu>
   </children>
   <variables>legoAssembly</variables>
   <variables>legoElement</variables>
+  <handlers xmi:id="_q6cI0OOzEeWv-rDn3LmQxA" elementId="at.bestsolution.lego.app.handler.0" contributionURI="bundleclass://at.bestsolution.lego.ui/at.bestsolution.lego.ui.handlers.AddBrick" command="_qZIykOOzEeWv-rDn3LmQxA"/>
+  <handlers xmi:id="_FV520OO7EeWv-rDn3LmQxA" elementId="at.bestsolution.lego.app.handler.1" contributionURI="bundleclass://at.bestsolution.lego.ui/at.bestsolution.lego.ui.handlers.NewAssembly" command="_Do0p8OO7EeWv-rDn3LmQxA"/>
   <rootContext xmi:id="_USBGQOFJEeWE6sjYlonxkA" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
     <children xmi:id="_USBGQuFJEeWE6sjYlonxkA" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_USBGQ-FJEeWE6sjYlonxkA" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
+  <commands xmi:id="_qZIykOOzEeWv-rDn3LmQxA" elementId="at.bestsolution.lego.app.command.addbrick" commandName="Add Brick"/>
+  <commands xmi:id="_Do0p8OO7EeWv-rDn3LmQxA" elementId="at.bestsolution.lego.app.command.newassembly" commandName="New Assembly"/>
   <addons xmi:id="_USBGROFJEeWE6sjYlonxkA" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_USBGReFJEeWE6sjYlonxkA" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_USBGRuFJEeWE6sjYlonxkA" elementId="org.eclipse.fx.ui.keybindings.e4.service" contributionURI="bundleclass://org.eclipse.fx.ui.keybindings.e4/org.eclipse.fx.ui.keybindings.e4.BindingServiceAddon"/>

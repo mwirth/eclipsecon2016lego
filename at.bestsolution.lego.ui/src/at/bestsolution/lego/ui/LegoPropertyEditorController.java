@@ -37,7 +37,7 @@ public class LegoPropertyEditorController implements Initializable {
 	IObservableValue legoBrick;
 
 	@Inject
-	public LegoPropertyEditorController(@ContextValue("legoElement") IObservableValue legoBrick) {
+	public LegoPropertyEditorController(@ContextValue(Constants.CURRENT_LEGO_BRICK) IObservableValue legoBrick) {
 		this.legoBrick = legoBrick;
 	}
 
