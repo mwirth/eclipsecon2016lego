@@ -1,9 +1,7 @@
 package at.bestsolution.lego.ui;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
-import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.fx.core.di.ContextValue;
 import org.eclipse.fx.ui.controls.image.FontIconView;
 import org.eclipse.fx.ui.controls.sceneviewer.Viewer3d;
@@ -65,8 +63,8 @@ public class ModelViewer  {
 		parent.setCenter(viewer);
 	}
 
-	@Inject
-	public void setModel(@Optional @Named(Constants.CURRENT_LEGO_ASSEMBLY) LegoElement element) {
+	/* TODO 2 Retrieve the current selection assembly  */
+	public void setModel(LegoElement element) {
 		if( currentElement != null && currentElement instanceof LegoAssembly ) {
 			element.getChildren().removeListener( this::handleChange);
 		}

@@ -3,13 +3,11 @@ package at.bestsolution.lego.ui;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.eclipse.fx.core.di.ContextValue;
 import org.eclipse.fx.core.event.EventBus;
 
 import at.bestsolution.lego.ui.components.LegoAssembly;
 import at.bestsolution.lego.ui.components.LegoBrick;
 import at.bestsolution.lego.ui.components.LegoRasterElement.Rotation;
-import javafx.beans.property.Property;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ListCell;
@@ -40,15 +38,17 @@ public class AssemeblyListView {
 	}
 
 	@PostConstruct
-	void init(BorderPane parent, @ContextValue(Constants.CURRENT_LEGO_ASSEMBLY) Property<LegoAssembly> assembly) {
+	void init(BorderPane parent) {
 		parent.getStyleClass().add("assembly-list-form");
 		ListView<LegoAssembly> view = new ListView<>();
 		view.setCellFactory( v -> new AssemblyCell());
-		assembly.bind(view.getSelectionModel().selectedItemProperty());
+
+		/*  TODO 1 Publish the current selected item from the list as Constants.CURRENT_LEGO_ASSEMBLY*/
 
 		ObservableList<LegoAssembly> list = FXCollections.observableArrayList(createSampleAssembly());
 		view.setItems(list);
-		eventBus.subscribe(Constants.TOPIC_NEW_ASSEMBLY, EventBus.data( list::add ));
+
+		/* TODO 5 Subscribe to the  Constants.TOPIC_NEW_ASSEMBLY and update the list of items*/
 
 		parent.setCenter(view);
 	}

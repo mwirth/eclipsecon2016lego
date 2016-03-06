@@ -4,9 +4,8 @@ import java.net.URL;
 
 import org.eclipse.fx.ui.services.theme.Stylesheet;
 import org.eclipse.fx.ui.services.theme.Theme;
-import org.osgi.service.component.annotations.Component;
 
-@Component
+/* TODO 8 contribute the css */
 public class LegoStylesheet implements Stylesheet {
 
 	@Override

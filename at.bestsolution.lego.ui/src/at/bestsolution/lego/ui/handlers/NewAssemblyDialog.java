@@ -2,10 +2,8 @@ package at.bestsolution.lego.ui.handlers;
 
 import javax.inject.Inject;
 
-import org.eclipse.fx.core.event.EventBus;
 import org.eclipse.fx.ui.controls.dialog.TitleAreaDialog;
 
-import at.bestsolution.lego.ui.Constants;
 import at.bestsolution.lego.ui.components.LegoAssembly;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -18,12 +16,9 @@ import javafx.scene.layout.Priority;
 public class NewAssemblyDialog extends TitleAreaDialog {
 	private TextField field;
 
-	private final EventBus eventBus;
-
 	@Inject
-	public NewAssemblyDialog(EventBus eventBus) {
+	public NewAssemblyDialog() {
 		super("Create assembly", "Create assembly", "Create a new assembly");
-		this.eventBus = eventBus;
 		setClientArea(createClientArea());
 		addDefaultButtons();
 		setMinWidth(300);
@@ -36,7 +31,7 @@ public class NewAssemblyDialog extends TitleAreaDialog {
 		Label l = new Label("Name");
 		field = new TextField();
 		HBox.setHgrow(field, Priority.ALWAYS);
-		box.getChildren().addAll(l,field);
+		box.getChildren().addAll(l, field);
 
 		return box;
 	}
@@ -45,7 +40,7 @@ public class NewAssemblyDialog extends TitleAreaDialog {
 	protected void handleOk() {
 		LegoAssembly a = new LegoAssembly();
 		a.setName(field.getText());
-		eventBus.publish(Constants.TOPIC_NEW_ASSEMBLY, a, true);
+		/* TODO 4 Publish the new assembly created on topic Constants.TOPIC_NEW_ASSEMBLY*/
 		super.handleOk();
 	}
 }
